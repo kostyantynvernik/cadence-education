@@ -16,7 +16,12 @@ const config = {
 // Styles for Experiment
 const styles = /* css */ `
 @media screen and (max-width: 600px){
+#wrp1 .flex_column {position: revert;}
 
+
+#popup1 .search-outer ul li {padding: 5px 0px 5px 20px!important;}
+#popup1 .search-outer ul li::before {left: 0!important;right: auto!important}
+#popup1 .search-outer ul li::after {left: 0!important;right: auto!important}
 
 .mobvip {cursor:pointer;}
 #popup1 .search-placeholder {display:none;}
@@ -30,7 +35,7 @@ height: 500px;
 padding: 10px 0;}
 
 .closescreen {right: 15px;position: absolute;top: 20px;z-index: 9999999;cursor:pointer;}
-
+.form-box #cd-location-results {top: 70px!important;}
 h1 {
   font-family: 'Lato';
   font-style: normal;
@@ -85,11 +90,18 @@ color: #666666;
 .find-school-section-home {background: transparent!important;}
 .form-box{position:relative;}
 #top #wrap_all .main_color .find-school-subpage.find-school-section-home {padding-bottom: 0px!important;}
-#school-locations-map {max-height: 170px;
-max-width: 1200px;
+#school-locations-map {
 margin: 0 auto;
-box-shadow: none;}
-#school-locations-map > div:first-child {margin-left: 300px!important;}
+box-shadow: none;
+display: block !important;
+height: 160px;
+margin: -30px;
+}
+#school-locations-map > div:first-child {
+height: 100px !important;
+width: 100% !important;
+}
+.list-pagination-wrap {margin-top:50px;}
 #main-search-block .container {max-width: 100%!important;width: 100%!important;}
 .find-school-section-home {margin: 0!important;padding: 0!important;}
 .find-school-form {max-width: 800px!important;margin: 0 auto 50px auto!important;}
@@ -197,6 +209,10 @@ line-height: 19px;
 align-items: center;
 color: #666666;
 }
+
+.mainsearch-outer .search-placeholder {display:none!important;}
+
+
 .find-school-section-home {background: transparent!important;}
 .form-box{position:relative;}
 #top #wrap_all .main_color .find-school-subpage.find-school-section-home {padding-bottom: 0px!important;}
@@ -204,7 +220,7 @@ color: #666666;
 max-width: 1200px;
 margin: 0 auto;
 box-shadow: none;}
-#school-locations-map > div:first-child {margin-left: 410px!important;}
+#school-locations-map > div:first-child {margin-left: 430px!important;}
 #main-search-block .container {max-width: 100%!important;width: 100%!important;}
 .find-school-section-home {margin: 0!important;padding: 0!important;}
 .find-school-form {max-width: 800px!important;margin: 0 auto 50px auto!important;}
@@ -223,7 +239,7 @@ box-shadow: none;}
 .mainsearch-outer {max-width:1200px;width:100%;margin:0 auto;}
 .mainsearch-outer .form-box {width: 270px;}
 body .school-results-list-wrapper .school-results-list-item {box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.2)!important;}
-.mainsearch-outer .cd-programs-filter {display: block!important;height: 500px!important;box-shadow: none!important;border:none;}
+.mainsearch-outer .cd-programs-filter {display: block!important;height: 500px!important;box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2)!important;border:none;}
 #nav-contact-button {background: white!important;
 padding: 8px 18px !important;
 color: #1C2388!important;
@@ -231,7 +247,12 @@ border-radius: 2px!important;
 border: 2px solid #1C2388!important;}
 #popup1 {display:none;}
 .mobvip {display:none;}
+#wrp1 .flex_column {position: revert;}
+.list-pagination-wrap .search-meta-info {display:none!important;}
 
+.mainsearch-outer .search-outer ul li {padding: 5px 0px 5px 20px!important;}
+.mainsearch-outer .search-outer ul li::before {left: 0!important;right: auto!important}
+.mainsearch-outer .search-outer ul li::after {left: 0!important;right: auto!important}
 }
 `
 
@@ -386,13 +407,14 @@ document.querySelectorAll('.getmylocation')[0].style.display='none';
 document.querySelectorAll('.getmylocation')[1].style.display='none';
 
 
-document.querySelectorAll('.form-box')[0].insertAdjacentHTML('beforeend', '<a href="javascript:void(0)" class="getmylocation" style="position:absolute;right:20px;top:36px;display:block">&nbsp;</a>');
+document.querySelectorAll('.form-box')[0].insertAdjacentHTML('beforeend', '<a href="javascript:void(0)" class="getmylocation getmylocation1" style="position:absolute;right:20px;top:36px;display:block">&nbsp;</a>');
 
 
 
 document.querySelectorAll('.cd-locations-continer')[0].insertAdjacentHTML('afterbegin', `<div class="mainsearch-outer"><div class="form-box"><div class="search-outer">
-<span class="search-placeholder">All Programs</span>
-<div style="display: block;background: white;padding: 10px 15px 0 15px;font-weight: bold;font-size: 16px;">What Program do you need?</div>
+
+<span style="display: block!important;background: white;padding: 10px 15px 0 15px;font-weight: bold;font-size: 16px;box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);">What Program do you need?</span>
+
 <ul class="cd-programs-filter">
 <li data-id="29300" data-val="Faith Based">Faith Based</li>
 <li data-id="26927" data-val="Language Immersion">Language Immersion</li>
@@ -423,10 +445,9 @@ document.querySelectorAll('.cd-locations-continer')[0].insertAdjacentHTML('after
                  <div class="form-box">
 				 <div class="search-outer">
 <span class="search-placeholder">FILTERS</span>
-
-<div style="display: block;background: white;padding: 10px 15px 15px 15px;font-weight: bold;font-size: 16px;">FILTERS</div>
-<div style="display: block;background: white;padding: 10px 15px 15px 15px;font-weight: bold;font-size: 16px;">FILTERS</div>
-<div style="display: block;background: white;padding: 10px 15px 0 15px;font-weight: bold;font-size: 16px;">What Program do you need?</div>
+<div style="display: block!important;background: white;padding: 10px 15px 15px 15px;font-weight: bold;font-size: 16px;">FILTERS</div>
+<div style="display: block!important;background: white;padding: 10px 15px 15px 15px;font-weight: bold;font-size: 16px;">FILTERS</div>
+<div style="display: block!important;background: white;padding: 10px 15px 0 15px;font-weight: bold;font-size: 16px;">What Program do you need?</div>
 <ul class="cd-programs-filter">
 <li data-id="29300" data-val="Faith Based">Faith Based</li>
 <li data-id="26927" data-val="Language Immersion">Language Immersion</li>
@@ -480,6 +501,12 @@ const modalBackground = document.getElementsByClassName("overlay")[0];
 const modalClose = document.getElementsByClassName("closescreen")[0];
 
 
+
+
+document.querySelectorAll('.getmylocation1')[0].addEventListener("click", function () {
+document.querySelectorAll('.getmylocation')[0].click();
+});
+
 modalTrigger.addEventListener("click", function () {
 document.getElementsByClassName("overlay")[0].classList.add("overlaytarget");
 });
@@ -487,24 +514,24 @@ document.getElementsByClassName("overlay")[0].classList.add("overlaytarget");
 
 
 modalClose.addEventListener("click", function () {
-    modalBackground.style.display = "none";
-    if (windowInnerWidth >= 1366) {
-    document.getElementsByClassName("overlay")[0].classList.remove("overlay");
-    }
+ 
+ 
+    document.getElementsByClassName("overlay")[0].classList.remove("overlaytarget");
+
 });
 
 modalBackground.addEventListener("click", function (event) {
     if (event.target === modalBackground) {
-        modalBackground.style.display = "none";
-        if (windowInnerWidth >= 1366) {
+       
+    
       
  document.getElementsByClassName("overlay")[0].classList.remove("overlaytarget");
-        }
+     
     }
 });
 
 
-
+document.querySelector('.map-title').innerHTML=document.querySelector('.map-title').innerHTML.replaceAll("Hide Map","<img style='vertical-align: text-bottom;height: 18px;' src='https://raw.githubusercontent.com/kostyantynvernik/cadence-education/refs/heads/main/Frame2.png'> Hide Map");
 
 
 
