@@ -465,7 +465,6 @@ document.querySelectorAll('.cd-locations-continer')[0].insertAdjacentHTML('after
 <li data-id="6471" data-val="Summer Programs">Summer Programs</li>
 <li data-id="6473" data-val="Montessori">Montessori</li>
 </ul>
-<span clas="showdesc">SHOW RESULTS</span>
 </div></div>
                 </div>
             </div>
@@ -605,8 +604,8 @@ if (what30[y].className==""){what30[y].classList.add("selected");}
 	for (var y1 = 0; y1 < what300.length; y1++) {
 	
 if (what300[y1].getAttribute('data-id') == mu.target.getAttribute('data-id')){
-if (what300[y1].className=="selected"){what300[y1].classList.remove("selected");}
-	else {what300[y1].classList.add("selected");}
+if (what300[y1].className=="selected"){what300[y1].classList.add("selected");}
+	else {what300[y1].classList.remove("selected");}
 
 };
 
