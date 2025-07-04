@@ -18,6 +18,21 @@ const styles = /* css */ `
 @media screen and (max-width: 600px){
 #wrp1 .flex_column {position: revert;}
 #wrap_all {margin-top: -35px;}
+.mobshow {width: 100%;background: white;text-align: center;padding: 20px;}
+.mobshow span {box-sizing: border-box;
+padding: 12px 20px;
+background: #2B6A39;
+border: 2px solid #2B6A39;
+border-radius: 2px;
+font-family: 'Lato';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 17px;
+text-transform: uppercase;
+color: #FFFFFF;
+cursor:pointer;
+}
  .mobile-header{margin-top: 2px;}
 
 #popup1 .search-outer ul li {padding: 5px 0px 5px 20px!important;}
@@ -27,7 +42,7 @@ const styles = /* css */ `
 .mobvip {cursor:pointer;}
 #popup1 .search-placeholder {display:none;}
 .mainsearch-outer {display:none!important;}
-#popup1 .cd-programs-filter {display: block!important;border: none;box-shadow: none;}
+#popup1 .cd-programs-filter {display: block!important;border: none;box-shadow: none;position: relative!important;}
 .entry-content-wrapper {margin-top:25px!important;}
 #find-school-banner {display:none!important;}
 #popup1 .content {width: 100%;
@@ -134,7 +149,7 @@ font-size: 13px;}
 
 .overlay {
   position: absolute;
-  top: -195px;
+  top: -185px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -467,6 +482,7 @@ document.querySelectorAll('.cd-locations-continer')[0].insertAdjacentHTML('after
 <li data-id="6471" data-val="Summer Programs">Summer Programs</li>
 <li data-id="6473" data-val="Montessori">Montessori</li>
 </ul>
+<div class="mobshow"><span>SHOW RESULTS</span></div>
 </div></div>
                 </div>
             </div>
@@ -632,21 +648,17 @@ ELS_test.forEach(el => attrObserver.observe(el, {attributes: true}));
 
 
 
-what5.forEach(what6 => {
-  what6.addEventListener('change', function(event1) {
-	
-	
 
 
-  });
+
+
+
+document.querySelectorAll('.mobshow span')[0].addEventListener("click", function () {
+ 
+ 
+document.querySelectorAll("#search-location")[0].click();
+
 });
-
-
-
-
-
-
-
 
 
 
