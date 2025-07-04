@@ -658,7 +658,7 @@ document.querySelectorAll('.mobshow span')[0].addEventListener("click", function
  
  
 document.querySelectorAll("#search-location")[0].click();
-document.querySelectorAll(".mobvip")[0].click();
+   document.getElementsByClassName("overlay")[0].classList.remove("overlaytarget");
 
 document.getElementsByClassName("mobvip")[0].scrollIntoView({ behavior: "smooth", block: "start"});
 
