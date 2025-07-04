@@ -535,6 +535,119 @@ document.querySelector('.map-title').innerHTML=document.querySelector('.map-titl
 
 
 
+var what3=document.querySelectorAll('.find-school-form .cd-programs-filter li');
+var what1 = document.querySelectorAll('.mainsearch-outer .cd-programs-filter li');
+
+
+var what5 = document.querySelectorAll('.find-school-form .cd-programs-filter li');
+
+
+what10 = document.querySelectorAll('#popup1 .cd-programs-filter li');
+
+
+what1.forEach(what2 => {
+  what2.addEventListener('click', function(event) {
+		for (var i = 0; i < what3.length; i++) {
+if (what3[i].getAttribute('data-id') == event.target.getAttribute('data-id')){what3[i].click();console.log(what3[i].getAttribute('data-id'));};
+}
+if (document.querySelectorAll('.find-school-form .cd-programs-filter li.selected').length==0){
+document.querySelectorAll('.find-school-form .search-placeholder')[0].innerText='All programs';
+}
+
+
+  });
+});
+
+
+
+
+
+what33=document.querySelectorAll('.mainsearch-outer .cd-programs-filter li');
+
+what10.forEach(what20 => {
+  what20.addEventListener('click', function(event) {
+		for (var g = 0; g < what3.length; g++) {
+if (what3[g].getAttribute('data-id') == event.target.getAttribute('data-id')){what3[g].click();};
+}
+if (document.querySelectorAll('.find-school-form .cd-programs-filter li.selected').length==0){
+document.querySelectorAll('.find-school-form .search-placeholder')[0].innerText='All programs';
+}
+
+
+
+});
+
+});
+
+
+
+var what30=document.querySelectorAll('.mainsearch-outer .cd-programs-filter li');
+what300=document.querySelectorAll('#popup1 .cd-programs-filter li');
+
+const attrObserver = new MutationObserver((mutations) => {
+  mutations.forEach(mu => {
+    if (mu.type !== "attributes" && mu.attributeName !== "class") return;
+	
+    console.log(mu.target.getAttribute('data-id'));
+	
+	
+	for (var y = 0; y < what30.length; y++) {
+	
+if (what30[y].getAttribute('data-id') == mu.target.getAttribute('data-id')){
+if (what30[y].className==""){what30[y].classList.add("selected");}
+	else {what30[y].classList.remove("selected");}
+
+};
+
+}
+
+	for (var y1 = 0; y1 < what300.length; y1++) {
+	
+if (what300[y1].getAttribute('data-id') == mu.target.getAttribute('data-id')){
+if (what300[y1].className=="selected"){what300[y1].classList.remove("selected");}
+	else {what300[y1].classList.add("selected");}
+
+};
+
+}
+
+	
+	
+	
+	
+	
+  });
+});
+
+
+
+const ELS_test = what5;
+ELS_test.forEach(el => attrObserver.observe(el, {attributes: true}));
+
+
+
+
+
+what5.forEach(what6 => {
+  what6.addEventListener('change', function(event1) {
+	
+	
+
+
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
  pushDataLayer(
         'add_block top',
         'Block',
