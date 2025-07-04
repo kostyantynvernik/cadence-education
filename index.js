@@ -510,6 +510,8 @@ document.querySelectorAll('.getmylocation')[0].click();
 
 modalTrigger.addEventListener("click", function () {
 document.getElementsByClassName("overlay")[0].classList.add("overlaytarget");
+
+document.getElementsByClassName("overlay")[0].scrollIntoView({ behavior: "smooth", block: "start"});
 });
 
 
