@@ -2,8 +2,8 @@ console.log('*** Experiment started ***')
 
 // Config for Experiment
 const config = {
-  // dir: 'https://kostyantynvernik.github.io/getdrunken',
-  dir: 'https://kostyantynvernik.github.io/getdrunken',
+  // dir: 'https://kostyantynvernik.github.io/cadence-education',
+  dir: 'https://kostyantynvernik.github.io/cadence-education',
   clarity: ['set', 'trial_exp', 'variant_1'],
   debug: false // Set to true for debug mode
 }
@@ -16,8 +16,130 @@ const config = {
 // Styles for Experiment
 const styles = /* css */ `
 @media screen and (max-width: 600px){
+
+
+.mobvip {cursor:pointer;}
+.search-placeholder {display:none;}
+.mainsearch-outer {display:none!important;}
+#popup1 .cd-programs-filter {display: block!important;border: none;box-shadow: none;}
 .entry-content-wrapper {margin-top:25px!important;}
 #find-school-banner {display:none!important;}
+#popup1 .content {width: 100%;
+display: block;
+height: 500px;
+padding: 10px 0;}
+
+.closescreen {right: 15px;position: absolute;top: 20px;z-index: 9999999;cursor:pointer;}
+
+h1 {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 40px;
+  align-items: center;
+  text-align: center !important;
+  text-transform: uppercase !important;
+  color: #212021 !important;
+}
+.av-kljzgm9q-5d3f88e85b80e7ceac3de1473140072f p {font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 26px;
+align-items: center;
+text-align: center !important;
+color: #666666;}
+
+main.template-page {
+justify-content: center;
+align-items: center;
+padding: 40px 135px;
+background: linear-gradient(0deg, #EDF7F0, #EDF7F0), #FFFFFF;
+}
+#after_section_1,#main-search-block {background: linear-gradient(0deg, #EDF7F0, #EDF7F0), #FFFFFF;}
+#after_section_1 .template-page {padding:0;margin-top: 25px;}
+
+#wrp1 {background:white;padding: 30px 15px 0px 15px;}
+#wrp1 .entry-content-wrapper {max-width:1170px;margin:60px auto;}
+#main-search-block 
+.find-school-section-home {box-shadow: none!important;}
+.find-school-form .mobile-hide {font-family: 'Lato';
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 16px;
+align-items: center;
+text-transform: capitalize;
+color: #666666;
+}
+#main-search-block .template-page {padding-bottom: 0px!important;}
+.form-box .search-placeholder {font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+align-items: center;
+color: #666666;
+}
+.find-school-section-home {background: transparent!important;}
+.form-box{position:relative;}
+#top #wrap_all .main_color .find-school-subpage.find-school-section-home {padding-bottom: 0px!important;}
+#school-locations-map {max-height: 170px;
+max-width: 1200px;
+margin: 0 auto;
+box-shadow: none;}
+#school-locations-map > div:first-child {margin-left: 300px!important;}
+#main-search-block .container {max-width: 100%!important;width: 100%!important;}
+.find-school-section-home {margin: 0!important;padding: 0!important;}
+.find-school-form {max-width: 800px!important;margin: 0 auto 50px auto!important;}
+#top #wrap_all .main_color .find-school-section-home input,.form-box .search-placeholder {height: 43px!important;}
+.cd-locations-continer {background:white;}
+.form-box .getmylocation {right: 8px!important;top: 25px!important;}
+.find-school-form .mobile-hide {display:block!important;}
+.av-section-cont-open {padding: 0!important;}
+.find-school-form {padding: 0 30px!important;margin-bottom: 20px !important;}
+
+.cd-locations-continer{padding: 30px!important;}
+.search-meta-info {display: none !important;}
+.logo-wrapper-column {display: block!important;margin-bottom: 20px!important;}
+.school-distance {display:none!important;}
+body .school-results-list-wrapper .school-results-list-item {padding: 16px!important;
+background: #FFFFFF!important;
+box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.08)!important;
+border-radius: 5px!important;
+}
+.button-wrapper-column .button {box-sizing: border-box;
+padding: 12px 10px;
+border-radius: 2px;
+line-height: 17px;
+font-size: 13px;}
+.list-pagination-wrap {color: black;}
+
+
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlaytarget {
+  visibility: visible!important;
+  opacity: 1!important;
+  z-index:9999!important;
+}
+
+
+
+
+
 }
 
 
@@ -102,6 +224,11 @@ box-shadow: none;}
 .mainsearch-outer .form-box {width: 270px;}
 body .school-results-list-wrapper .school-results-list-item {box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.2)!important;}
 .mainsearch-outer .cd-programs-filter {display: block!important;height: 500px!important;box-shadow: none!important;}
+.nav-contact-button {background: white!important;
+padding: 8px 18px !important;
+color: #1C2388!important;
+border-radius: 2px!important;
+border: 2px solid #1C2388!important;}
 }
 `
 
@@ -133,6 +260,9 @@ function handlePackages() {
 
 var mainblock = document.querySelectorAll('#main-search-block .container')[0];
 
+var outerWidth=window.outerWidth;
+
+if (outerWidth>601){
 // Insert HTML after the existing element
 mainblock.insertAdjacentHTML('afterend', `<div id="wrp1"><div class="entry-content-wrapper clearfix" style="padding-top:60px;margin-top:0!important;margin-bottom: 0 !important;padding-bottom: 25px;">
 <div class="flex_column av-bgcq4p-e6f583e2517cc067763fbb6f73f068a6 av_one_full  avia-builder-el-43  el_after_av_one_full  el_before_av_one_fifth  locations-list-section first flex_column_div  column-top-margin"><section class="av_textblock_section av-lz776bwm-ccedbf8f35a2e14ba7c2953980d95234 " itemscope="itemscope" itemtype="https://schema.org/CreativeWork"><div class="avia_textblock" itemprop="text"><h4 style="text-align: center;">Trusted by Families Across the U.S. in Over 325 Locations.</h4>
@@ -184,6 +314,65 @@ mainblock.insertAdjacentHTML('afterend', `<div id="wrp1"><div class="entry-conte
 </div></section></div>
 </div></div>`);
 
+}
+
+else {
+
+// Insert HTML after the existing element
+mainblock.insertAdjacentHTML('afterend', `<div id="wrp1"><div class="entry-content-wrapper clearfix" style="padding-top:60px;margin-top:0!important;margin-bottom: 0 !important;padding-bottom: 25px;">
+<div class="flex_column av-bgcq4p-e6f583e2517cc067763fbb6f73f068a6 av_one_full  avia-builder-el-43  el_after_av_one_full  el_before_av_one_fifth  locations-list-section first flex_column_div  column-top-margin"><section class="av_textblock_section av-lz776bwm-ccedbf8f35a2e14ba7c2953980d95234 " itemscope="itemscope" itemtype="https://schema.org/CreativeWork"><div class="avia_textblock" itemprop="text"><h4 style="text-align: center;">Trusted by Families Across the U.S. in Over 325 Locations.</h4>
+</div></section></div>
+<div style="width: 50%;float: left;" class="flex_column av-8luiwp-0fc02bb38157a329c7a7c21d6632db70 av_one_fifth  avia-builder-el-45  el_after_av_one_full  el_before_av_one_fifth  locations-list-section-col first flex_column_div  column-top-margin"><section class="av_textblock_section av-lz7778a2-40b94bdad6a34680312ba3387b0e0c4a " itemscope="itemscope" itemtype="https://schema.org/CreativeWork"><div class="avia_textblock" itemprop="text"><ul>
+<li style="text-align: left;"><a href="https://www.cadence-education.com/locations/ar/">Arkansas</a></li>
+<li style="text-align: left;"><a href="https://www.cadence-education.com/locations/az/">Arizona</a></li>
+<li style="text-align: left;"><a href="https://www.cadence-education.com/locations/ca/">California</a></li>
+<li style="text-align: left;"><a href="https://www.cadence-education.com/locations/ct">Connecticut</a></li>
+<li style="text-align: left;"><a href="https://www.cadence-education.com/locations/de">Delaware</a></li>
+<li style="text-align: left;"><a href="https://www.cadence-education.com/locations/fl/">Florida</a></li>
+<li><a href="https://www.cadence-education.com/locations/ga">Georgia</a></li>
+<li style="text-align: left;"><a href="https://www.cadence-education.com/locations/ia">Iowa</a></li>
+<li style="text-align: left;"><a href="https://www.cadence-education.com/locations/il/">Illinois</a></li>
+<li style="text-align: left;"><a href="https://www.cadence-education.com/locations/ks">Kansas</a></li>
+<li style="text-align: left;"><a href="https://www.cadence-education.com/locations/ky/">Kentucky</a></li>
+<li><a href="https://www.cadence-education.com/locations/ma/">Massachusetts</a></li>
+<li><a href="https://www.cadence-education.com/locations/md/">Maryland</a></li>
+<li><a href="https://www.cadence-education.com/locations/mn">Minnesota</a></li>
+<li><a href="https://www.cadence-education.com/locations/mo">Missouri</a></li>
+</ul>
+</div></section></div>
+
+
+
+<div style="width: 50%;float: right;" class="flex_column av-3x4hs9-5a11df64d94823d3c0d65db702be53dd av_one_fifth  avia-builder-el-51  el_after_av_one_fifth  el_before_av_one_fifth  locations-list-section-col flex_column_div  column-top-margin"><section class="av_textblock_section av-lz778dft-7151abc4f41a68999e2dfc336425814e " itemscope="itemscope" itemtype="https://schema.org/CreativeWork"><div class="avia_textblock" itemprop="text"><ul>
+
+<li><a href="https://www.cadence-education.com/locations/ms/">Mississippi</a></li>
+<li><a href="https://www.cadence-education.com/locations/nc/">North Carolina</a></li>
+<li><a href="https://www.cadence-education.com/locations/ne/">Nebraska</a></li>
+<li><a href="https://www.cadence-education.com/locations/nj/">New Jersey</a></li>
+<li><a href="https://www.cadence-education.com/locations/ny/">New York</a></li>
+<li style="text-align: left;"><a href="https://www.cadence-education.com/locations/or/">Oregon</a></li>
+<li><a href="https://www.cadence-education.com/locations/pa">Pennsylvania</a></li>
+<li><a href="https://www.cadence-education.com/locations/ri/">Rhode Island</a></li>
+<li><a href="https://www.cadence-education.com/locations/sc/">South Carolina</a></li>
+<li><a href="https://www.cadence-education.com/locations/tn/">Tennessee</a></li>
+<li><a href="https://www.cadence-education.com/locations/tx/">Texas</a></li>
+<li><a href="https://www.cadence-education.com/locations/ut/">Utah</a></li>
+<li><a href="https://www.cadence-education.com/locations/va">Virginia</a></li>
+<li><a href="https://www.cadence-education.com/locations/wa/">Washington</a></li>
+<li><a href="https://www.cadence-education.com/locations/wi/">Wisconsin</a></li>
+</ul>
+</div></section></div>
+</div></div>`);
+
+}
+
+
+
+
+
+
+
+
 document.querySelectorAll('h1')[0].innerText='Find a School';
 document.querySelectorAll('h1')[1].innerText='Find a School';
 
@@ -217,7 +406,100 @@ document.querySelectorAll('.cd-locations-continer')[0].insertAdjacentHTML('after
 <li data-id="6471" data-val="Summer Programs">Summer Programs</li>
 <li data-id="6473" data-val="Montessori">Montessori</li>
 </ul>
-</div></div></div>`);
+</div></div></div>
+
+
+
+
+<div id="popup1" class="overlay">
+            <div class="popup">
+                
+                <span class="closescreen"><img src="https://raw.githubusercontent.com/kostyantynvernik/cadence-education/refs/heads/main/Frame.png"></span>
+                <div class="content">
+                 <div class="form-box">
+				 <div class="search-outer">
+<span class="search-placeholder">FILTERS</span>
+
+<div style="display: block;background: white;padding: 10px 15px 15px 15px;font-weight: bold;font-size: 16px;">FILTERS</div>
+<div style="display: block;background: white;padding: 10px 15px 15px 15px;font-weight: bold;font-size: 16px;">FILTERS</div>
+<div style="display: block;background: white;padding: 10px 15px 0 15px;font-weight: bold;font-size: 16px;">What Program do you need?</div>
+<ul class="cd-programs-filter">
+<li data-id="29300" data-val="Faith Based">Faith Based</li>
+<li data-id="26927" data-val="Language Immersion">Language Immersion</li>
+<li data-id="22201" data-val="Reggio Emilia">Reggio Emilia</li>
+<li data-id="21946" data-val="Montessori Preschool Program">Montessori Preschool Program</li>
+<li data-id="21937" data-val="Montessori Infant Program">Montessori Infant Program</li>
+<li data-id="21916" data-val="Montessori Toddler Program">Montessori Toddler Program</li>
+<li data-id="6669" data-val="Infant Care">Infant Care</li>
+<li data-id="6667" data-val="Toddler Care">Toddler Care</li>
+<li data-id="6665" data-val="Preschool">Preschool</li>
+<li data-id="6663" data-val="Pre-K &amp; Kindergarten Club">Pre-K &amp; Kindergarten Club</li>
+<li data-id="6479" data-val="Private Kindergarten">Private Kindergarten</li>
+<li data-id="6477" data-val="School-Age Program">School-Age Program</li>
+<li data-id="6475" data-val="Elementary Schools">Elementary Schools</li>
+<li data-id="6471" data-val="Summer Programs">Summer Programs</li>
+<li data-id="6473" data-val="Montessori">Montessori</li>
+</ul>
+</div></div>
+                </div>
+            </div>
+        </div>
+
+
+
+	
+
+
+
+
+`);
+
+
+
+
+
+document.querySelectorAll('.search-meta-info-found')[0].insertAdjacentHTML('afterend', `<span class="mobvip"><img src="https://raw.githubusercontent.com/kostyantynvernik/cadence-education/refs/heads/main/Frame%2018316.png"></span>`);
+
+
+
+
+
+var modalTrigger = document.querySelectorAll('.mobvip')[0];
+
+
+const windowInnerWidth = document.documentElement.clientWidth;
+const scrollbarWidth = parseInt(window.innerWidth) - parseInt(document.documentElement.clientWidth);
+
+
+const bodyElementHTML = document.getElementsByTagName("body")[0];
+const modalBackground = document.getElementsByClassName("overlay")[0];
+const modalClose = document.getElementsByClassName("closescreen")[0];
+
+
+modalTrigger.addEventListener("click", function () {
+document.getElementsByClassName("overlay")[0].classList.add("overlaytarget");
+});
+
+
+
+modalClose.addEventListener("click", function () {
+    modalBackground.style.display = "none";
+    if (windowInnerWidth >= 1366) {
+    document.getElementsByClassName("overlay")[0].classList.remove("overlay");
+    }
+});
+
+modalBackground.addEventListener("click", function (event) {
+    if (event.target === modalBackground) {
+        modalBackground.style.display = "none";
+        if (windowInnerWidth >= 1366) {
+      
+ document.getElementsByClassName("overlay")[0].classList.remove("overlaytarget");
+        }
+    }
+});
+
+
 
 
 
