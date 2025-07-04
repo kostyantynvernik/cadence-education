@@ -19,7 +19,7 @@ const styles = /* css */ `
 
 
 .mobvip {cursor:pointer;}
-.search-placeholder {display:none;}
+#popup1 .search-placeholder {display:none;}
 .mainsearch-outer {display:none!important;}
 #popup1 .cd-programs-filter {display: block!important;border: none;box-shadow: none;}
 .entry-content-wrapper {margin-top:25px!important;}
@@ -204,7 +204,7 @@ color: #666666;
 max-width: 1200px;
 margin: 0 auto;
 box-shadow: none;}
-#school-locations-map > div:first-child {margin-left: 300px!important;}
+#school-locations-map > div:first-child {margin-left: 410px!important;}
 #main-search-block .container {max-width: 100%!important;width: 100%!important;}
 .find-school-section-home {margin: 0!important;padding: 0!important;}
 .find-school-form {max-width: 800px!important;margin: 0 auto 50px auto!important;}
@@ -219,16 +219,19 @@ box-shadow: none;}
 .map-title-wrapper::after {display:none;}
 .cd-locations-continer {position: relative;padding-top:65px}
 .map-title {position: absolute;right: 0;top: -40px;background: none;}
-.search-meta-info-found {position: absolute;top: 80px;color: black;}
+.search-meta-info-found {position: absolute;top: 70px;color: black;}
 .mainsearch-outer {max-width:1200px;width:100%;margin:0 auto;}
 .mainsearch-outer .form-box {width: 270px;}
 body .school-results-list-wrapper .school-results-list-item {box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.2)!important;}
-.mainsearch-outer .cd-programs-filter {display: block!important;height: 500px!important;box-shadow: none!important;}
-.nav-contact-button {background: white!important;
+.mainsearch-outer .cd-programs-filter {display: block!important;height: 500px!important;box-shadow: none!important;border:none;}
+#nav-contact-button {background: white!important;
 padding: 8px 18px !important;
 color: #1C2388!important;
 border-radius: 2px!important;
 border: 2px solid #1C2388!important;}
+#popup1 {display:none;}
+.mobvip {display:none;}
+
 }
 `
 
@@ -389,6 +392,7 @@ document.querySelectorAll('.form-box')[0].insertAdjacentHTML('beforeend', '<a hr
 
 document.querySelectorAll('.cd-locations-continer')[0].insertAdjacentHTML('afterbegin', `<div class="mainsearch-outer"><div class="form-box"><div class="search-outer">
 <span class="search-placeholder">All Programs</span>
+<div style="display: block;background: white;padding: 10px 15px 0 15px;font-weight: bold;font-size: 16px;">What Program do you need?</div>
 <ul class="cd-programs-filter">
 <li data-id="29300" data-val="Faith Based">Faith Based</li>
 <li data-id="26927" data-val="Language Immersion">Language Immersion</li>
