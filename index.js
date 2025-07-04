@@ -133,7 +133,7 @@ font-size: 13px;}
 
 .overlay {
   position: absolute;
-  top: 0;
+  top: -195px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -142,6 +142,7 @@ font-size: 13px;}
   visibility: hidden;
   opacity: 0;
 }
+.header-mobile-bar  {display:none!important;}
 .overlaytarget {
   visibility: visible!important;
   opacity: 1!important;
