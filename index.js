@@ -17,7 +17,8 @@ const config = {
 const styles = /* css */ `
 @media screen and (max-width: 600px){
 #wrp1 .flex_column {position: revert;}
-
+#wrap_all {margin-top: -35px;}
+ .mobile-header{margin-top: 2px;}
 
 #popup1 .search-outer ul li {padding: 5px 0px 5px 20px!important;}
 #popup1 .search-outer ul li::before {left: 0!important;right: auto!important}
