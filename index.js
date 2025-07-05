@@ -604,32 +604,53 @@ document.querySelectorAll('.find-school-form .search-placeholder')[0].innerText=
 var what30=document.querySelectorAll('.mainsearch-outer .cd-programs-filter li');
 what300=document.querySelectorAll('#popup1 .cd-programs-filter li');
 
+var datassg=[];
+
+	for (var y = 0; y < what30.length; y++) {
+	
+datassg.push(what30[y].getAttribute('data-id'));
+
+}
+
+
 const attrObserver = new MutationObserver((mutations) => {
   mutations.forEach(mu => {
     if (mu.type !== "attributes" && mu.attributeName !== "class") return;
 	
-    console.log(mu.target.getAttribute('data-id'));
 	
 	
-	for (var y = 0; y < what30.length; y++) {
 	
-if (what30[y].getAttribute('data-id') == mu.target.getAttribute('data-id')){
-if (what30[y].className==""){what30[y].classList.add("selected");}
-	else {what30[y].classList.remove("selected");}
+	
+
+	indexx = Array.from(datassg).indexOf(mu.target.getAttribute('data-id'));
+    console.log(indexx);
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+if (what30[indexx].getAttribute('data-id') == mu.target.getAttribute('data-id')){
+if (what30[indexx].className==""){what30[indexx].classList.add("selected");}
+	else {what30[indexx].classList.remove("selected");}
 
 };
 
-}
 
-	for (var y1 = 0; y1 < what300.length; y1++) {
+
+
 	
-if (what300[y1].getAttribute('data-id') == mu.target.getAttribute('data-id')){
-if (what300[y1].className==""){what300[y1].classList.add("selected");}
-	else {what300[y1].classList.remove("selected");}
+if (what300[indexx].getAttribute('data-id') == mu.target.getAttribute('data-id')){
+if (what300[indexx].className==""){what300[indexx].classList.add("selected");}
+	else {what300[indexx].classList.remove("selected");}
 
 };
 
-}
+
 
 	
 	
